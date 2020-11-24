@@ -37,3 +37,18 @@
     background-color: #f58a07!important;
     color: #ffffff;
 }
+.encabezado-card .card-title {
+    font-size: 17px!important;  
+}
+.add-product{
+    text-align: right;
+}
+.add-product .add-icon{
+    cursor: pointer;
+}
+.add-product .add-icon:hover{
+    opacity: 0.8;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #333;
+}

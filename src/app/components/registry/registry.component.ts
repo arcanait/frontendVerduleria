@@ -15,7 +15,8 @@ export class RegistryComponent implements OnInit {
     apellidos: new FormControl('', [Validators.required]),
     correo: new FormControl('', [Validators.required]),
     pass: new FormControl('', [Validators.required]),
-    terminos: new FormControl(false, [Validators.required])
+    terminos: new FormControl('', [Validators.required]),
+    rol: new FormControl('cliente')
   })
 
   registroProveedor = new FormGroup({
@@ -27,7 +28,8 @@ export class RegistryComponent implements OnInit {
     departamento: new FormControl('', [Validators.required]),
     correo: new FormControl('', [Validators.required]),
     pass: new FormControl('', [Validators.required]),
-    terminos: new FormControl(false, [Validators.required])
+    terminos: new FormControl('', [Validators.required]),
+    rol: new FormControl('proveedor')
   })
 
   constructor(private auth: AuthService, private router: Router) { }
@@ -41,7 +43,7 @@ export class RegistryComponent implements OnInit {
         console.log(response)
         this.router.navigate(['/shop'])
       },
-      error => console.log(error)
+      error => console.log('este error al registrar cliente',error)
     )
   }
 
@@ -51,7 +53,8 @@ export class RegistryComponent implements OnInit {
         console.log(response)
         this.router.navigate(['/shop'])
       },
-      error => console.log(error)
-    )  }
+      error => console.log('este error al registrar cliente',error)
+    )
+  }
 
 }

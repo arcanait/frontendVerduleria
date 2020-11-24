@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  usuario: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.obtenerInformacionDelUsuario();
+  }
+
+  obtenerInformacionDelUsuario() {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'))
+    console.log('desde el dashborad', this.usuario)
+  }
+
+  agregarProducto(){
+    console.log('añadir producto')
   }
 
 }
