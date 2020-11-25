@@ -35,3 +35,10 @@ main{
     border: 1px solid red;
     box-shadow: none;
 }
+.boton-ingresar-login{
+    background-color: #F58A07!important;
+    color: #ffffff!important;
+}
+.boton-ingresar-login:active {
+    transform: translateY(4px);
+}

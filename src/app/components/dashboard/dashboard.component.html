@@ -17,7 +17,8 @@
                         </div>
                         <div class="col-4">
                             <div class="add-product">
-                                <mat-icon class="add-icon" aria-hidden="false" aria-label="add" (click)="agregarProducto()">add</mat-icon>
+                                <mat-icon class="add-icon" aria-hidden="false" aria-label="add" 
+                                class="btn boton-login" data-toggle="modal" data-target="#modalCargueProductos">add</mat-icon>
                             </div>
                         </div>
                     </div>
@@ -34,26 +35,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Papa</td>
-                                <td>$4.000</td>
-                                <td>50 lb</td>
-                                <td><i class="fas fa-pen"></i> <i class="fas fa-trash-alt"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Lechuga</td>
-                                <td>$2.000</td>
-                                <td>30 lb</td>
-                                <td><i class="fas fa-pen"></i> <i class="fas fa-trash-alt"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Ahuyama</td>
-                                <td>$3.000</td>
-                                <td>70 lb</td>
-                                <td><i class="fas fa-pen"></i> <i class="fas fa-trash-alt"></i></td>
+                            <tr *ngFor='let producto of listaDeProductos; let i = index'>
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{producto.nombre}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td>{{producto.cantidad}} {{producto.masaUnitaria}}</td>
+                                <td><i class="fas fa-pen" data-toggle="modal" data-target="#modalEditarProductos"></i> <i class="fas fa-trash-alt" (click)='eliminarProducto(producto)'></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -80,6 +67,80 @@
                         <span class="sell-text"> $50.000.000.00</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="modalCargueProductos" tabindex="-1" aria-labelledby="modalCargueProductos" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content contenedor-loginModal">
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title " id="login">Crear producto</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]='producto' (ngSubmit)='agregarProducto()'>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="nombre">nombre:</label>
+                        <input type="text" class="form-control" id="nombreProducto" formControlName='nombre'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="tipoProducto">Tipo:</label>
+                        <input type="text" class="form-control" id="tipoProducto" formControlName='tipo'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="unidad">Unidad:</label>
+                        <input type="text" class="form-control" id="unidad" formControlName='masaUnitaria'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="precio">Precio:</label>
+                        <input type="text" class="form-control" id="precio" formControlName='precio'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="text" class="form-control" id="cantidad" formControlName='cantidad'>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn boton-ingresar-login" type="submit">Crear producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="modalEditarProductos" tabindex="-1" aria-labelledby="modalEditarProductos" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content contenedor-loginModal">
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title " id="login">Editar producto</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]='producto' (ngSubmit)='editarProducto()'>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="nombre">nombre:</label>
+                        <input type="text" class="form-control" id="nombreProducto" formControlName='nombre'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="tipoProducto">Tipo:</label>
+                        <input type="text" class="form-control" id="tipoProducto" formControlName='tipo'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="unidad">Unidad:</label>
+                        <input type="text" class="form-control" id="unidad" formControlName='masaUnitaria'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="precio">Precio:</label>
+                        <input type="text" class="form-control" id="precio" formControlName='precio'>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-2">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="text" class="form-control" id="cantidad" formControlName='cantidad'>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn boton-ingresar-login" type="submit">Editar producto</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

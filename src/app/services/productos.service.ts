@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Producto } from '../components/models/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +9,32 @@ import { HttpClient } from '@angular/common/http';
 export class ProductosService {
 
   constructor(private http: HttpClient) { }
-  
-  private listaUrl = 'http://localhost:3003/api/tablero/lista';
-  private crearUrl = 'http://localhost:3003/api/tablero';
+  // private productos: Producto[] = [];
+  // private lista = new BehaviorSubject<Producto[]>([]);
 
-  listaActividad() {
+  // lista$ = this.lista.asObservable();
+
+  private crearUrl = 'http://localhost:3003/api/producto';
+  private listaUrl = 'http://localhost:3003/api/producto/misProductos';
+
+  listarProductos(): Observable<any> {
+    // this.productos = [...this.productos]
+    // this.lista.next(this.productos)
     return this.http.get<any>(this.listaUrl);
   }
 
-  crearActividad(tablero) {
-    return this.http.post<any>(this.crearUrl, tablero);
+  crearProducto(producto) {
+    return this.http.post<any>(this.crearUrl, producto);
   }
 
-  eliminarActividad(tablero){
-    const _id = tablero._id;
+  editarProducto(producto) {
+    return this.http.put<any>(this.crearUrl, producto);
+  }
+
+  eliminarProducto(producto){
+    const _id = producto._id;
     const url = `${this.crearUrl}/${_id}`;
+    console.log(url)
     return this.http.delete<any>(url);
   }
 }

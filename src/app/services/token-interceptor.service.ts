@@ -5,14 +5,14 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TokenInterceptorService {
+export class TokenInterceptorService implements HttpInterceptor{
 
   constructor(private auth: AuthService) { }
 
   intercept(req, next) {
     const tokenReq = req.clone({
       setHeaders: {
-        Authorizations: 'Bearer ' + this.auth.obtenerToken()
+        Authorization: 'Bearer ' + this.auth.obtenerToken()
       }
     });
     return next.handle(tokenReq);

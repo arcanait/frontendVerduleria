@@ -53,7 +53,7 @@ export class NavComponent implements OnInit {
     this.auth.loginUsuarioProveedor(this.perfilProveedor.value).subscribe(
       response => {
         console.log('se logeo exitosamente', response)
-        localStorage.setItem('token', response.jwtToken)
+        localStorage.setItem('token', response.jwToken)
         localStorage.setItem('usuario', JSON.stringify(response.infoUsuario))
         this.router.navigate(['/dashboard']);
       },
