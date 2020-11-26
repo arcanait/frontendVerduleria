@@ -15,17 +15,18 @@ p{
 }
 .imagen {
     border-radius: 15px;
-    border: 2px solid #009ff5;
+    border: 2px solid #f58a07;
     box-shadow: 0px 10px 10px rgba(0, 0, 0,0.50);
 }
 h1>a {
     color: #000000;
     text-decoration: none;
+    font-size: 40px;
 }
 h1>a:hover {
-    color: #009ff5;
+    color: #f58a07;
     text-decoration: underline;
-    text-decoration-color:#009ff5;
+    text-decoration-color:#f58a07;
     transition: all 0.2s;
     -webkit-text-stroke: 1px #000000;
 
@@ -42,15 +43,16 @@ h1>a:hover {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: rgba(0,118,192,0.781);
+    background-color: #f58a07;
     width: 100%;
     height: 0;
     border-radius: 15px;
     overflow: hidden;
     transition: 1s;
+    opacity: 0.7;
 }
 .capa > h3{
-    color: #ffffff;
+    color: rgb(0, 0, 0);
     position: absolute;
     font-size: 30px;
     top:50%;

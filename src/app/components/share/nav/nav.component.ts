@@ -22,12 +22,12 @@ export class NavComponent implements OnInit {
   productos$: Observable<Producto[]>;
 
   perfilProveedor = new FormGroup({
-    correo: new FormControl('', [Validators.required]),
+    correo: new FormControl('', [Validators.required, Validators.email]),
     pass: new FormControl('', [Validators.required]),
   })
 
   perfilCliente = new FormGroup({
-    correo: new FormControl('', [Validators.required]),
+    correo: new FormControl('', [Validators.required, Validators.email]),
     pass: new FormControl('', [Validators.required]),
   })
 

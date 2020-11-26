@@ -1,24 +1,25 @@
-.jumbotron{
-    background-image: url("../../../assets/img/katherine-chase-4MMK78S7eyk-unsplash.png");
-    background-size: cover;
-    height: 60vh;
-    opacity: 1;
-    position: relative;
+body{
+  margin: 0;
+  padding: 0;
 }
-.fondo{
-  background-color: #fff;
-  opacity: 0.5;
-  position: absolute;
-  top: auto;
-  left: 50%;
+.fruta{
+  background-image: url(../../../assets/img/katherine-chase-4MMK78S7eyk-unsplash.png);
+  background-size: cover;
+  background-position: center;
+  height: 60%;
+  opacity: 1;
 }
-.texto{
-  padding-top: 50px !important;
+.mensaje{
+  color: #000000;
+    text-decoration: none;
+    font-size: 40px;
 }
-.banner1{
-    position: relative;
-    overflow: hidden;
-    height: 50vh;
+.mensaje:hover{
+  color: #f58a07;
+    text-decoration-color:#f58a07;
+    transition: all 0.2s;
+    -webkit-text-stroke: 1px #000000;
+
 }
 #bonito {
     position:relative;

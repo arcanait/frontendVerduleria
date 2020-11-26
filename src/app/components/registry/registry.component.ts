@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn} from '@angular/forms';
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,8 +13,9 @@ export class RegistryComponent implements OnInit {
   registroCliente = new FormGroup({
     nombres: new FormControl('', [Validators.required]),
     apellidos: new FormControl('', [Validators.required]),
-    correo: new FormControl('', [Validators.required]),
-    pass: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    pass2C: new FormControl('', [Validators.required, Validators.minLength(8)]),
     terminos: new FormControl('', [Validators.required]),
     rol: new FormControl('cliente')
   })
@@ -26,8 +27,9 @@ export class RegistryComponent implements OnInit {
     direccion: new FormControl('', [Validators.required]),
     municipio: new FormControl('', [Validators.required]),
     departamento: new FormControl('', [Validators.required]),
-    correo: new FormControl('', [Validators.required]),
-    pass: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    pass: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    pass2: new FormControl('', [Validators.required, Validators.minLength(8)]),
     terminos: new FormControl('', [Validators.required]),
     rol: new FormControl('proveedor')
   })

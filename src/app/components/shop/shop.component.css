@@ -2,9 +2,20 @@
     background-image: url("../../../assets/img/alexander-schimmeck-ks5flsI1mNo-unsplash.jpg");
     background-size: cover;
     background-position: center;
-    height: 80vh;
-
+    height: 60vh;
 }
+.mensaje{
+    color: #ffffff;
+      text-decoration: none;
+      font-size: 40px;
+  }
+  .mensaje:hover{
+    color: #f58a07;
+      text-decoration-color:#f58a07;
+      transition: all 0.2s;
+      -webkit-text-stroke: 1px #000000;
+  
+  }
 .card-img-top{
     opacity: 0.8;
 }
